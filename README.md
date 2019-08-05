@@ -20,13 +20,18 @@ Mike: Build out list of functions and write test proximity algorithm.
 •Finalize selection of criteria (options and filters)
 
 [Jack]•Create layouts
- [Jim]•Define divs for main input form•GoogleMap integration 
+
+[Jim]•Define divs for main input form•GoogleMap integration 
+
 [Ruslan]•Yelp integration 
+
 [Jack]•Define table output for select of locations 
+
 [Mike]•Create meet-up location suggestion based on proximity 
 [Mike]•Integrate map select feature into visual•Integrate date/time picker
 
-•Populate unordered list of restaurants that match criteria•Produce summary layout/divsLaterCreate function to distribute invites via Calendly 
+•Populate unordered list of restaurants that match criteria
+•Produce summary layout/divsLaterCreate function to distribute invites via Calendly 
 [Jack]
 
 Consider Firebase integration for persistency of outstanding Meet-ups (for RSVP) [Jim]
