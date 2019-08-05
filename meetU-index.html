@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <title>I'll meetU there!!</title>
+    <!--bootStrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--myStylesheet.css-->
+    <link rel="stylesheet" href="assets/css/meetU-style.css">
+    <!--jQuery CDN-->
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+ 
+
+</head>    
+<body>
+          <!--holds it all together-->
+        <div class="container-fluid">
+          <button type="button" id="initMeetU" class="btn btn-primary">Welcome to MeetU!</button>
+          <div class="row">
+            <div class="col-6" id="leftSide">
+              <!--left side of the document-->
+              <!--map shows up here-->
+            
+            </div>
+              <div class="col-6" id="rightSide">
+                <!--right side of the document-->
+                <!--have a MODAL show up here-->
+              </div> 
+          </div>
+        </div>
+
+
+
+
+<footer>
+  <!--******   HIDDEN UNTIL .on('click', event)   *****-->
+  <div class="container-fluid" id="">
+    <!--this is where the list is going to append-->
+    <!--put a navbar-->
+    <ul id="resultsDropDown">
+      <!--** onClick events for the <li> tags **-->
+        <!--pick date & time-->
+        <!--submit button-->
+        <button type="submit" id="submitBtn" class="btn btn-success">Let's meetU!</button>
+      </ul>
+    </div>
+</footer>
+
+<script src="assets/javascript/meetU-app.js"></script>
+</body>
+</html>
