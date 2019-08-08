@@ -58,14 +58,21 @@ $(document).ready(function() {
 
             $("#addFriend").val("");
             $("#friendZipLoc").val("");
-                
+            /**
+             * MAYBE we can have an interval->TRIGGER either a ...<<endl
+             * strtl>>...modal !! quickPopUp{**I think this isnt allowed for this}
+             * #JUST a thought */    
         })
     //Summation of entries && SECTION.hide();
     $("#pushDataBtn").on('click', function() {
         $("#section-sideR").hide();
         $("#titleLineDelt").text("Woohoo!!!!!");
-        $("#introText").text("You & " + (nameArray.length - 1) +"person(s) are meeting up!");
+        $("#introText").text("Party of " + (nameArray.length) + " meeting up! Get the White Claws!!!");
+
+    
     })
+    
+
         
 
 
