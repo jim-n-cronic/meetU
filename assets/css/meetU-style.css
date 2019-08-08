@@ -1,47 +1,6 @@
-
-.container-fluid {
-    text-align: center;
-    margin-top: 61.80px;
-   
-}
-
-
-
-
-.animate {
-    -ms-zoom-animation: default;
-    i
-}
-
-
-h1{
-    font-weight: bolder;
-    
-}
-
-#screenDelta {
-    border-radius: 12px;
-    background-color: gray;
-    color: goldenrod;
-    margin-left: 303px;
-    margin-right: 303px;
-    padding-top: 46.23px;
-    padding-bottom: 46.23px;
-    font-weight: bolder;
-}
-
-input {
-    background-color: goldenrod;
-}
-
-#user-submitInit {
+#section-sideR { 
+    /*REMINDER TO SET THIS TO HIDDEN WHEN APP IS READY TO TEST!!!!*/
+    float: right;
+    background-color: darkorange;
     border-radius: 8px;
-    background-color: black;
-    color: goldenrod;
-    font-weight: bold;
-}
-
-.initInputInfo {
-    visibility: visible;
-    
-}
+} 

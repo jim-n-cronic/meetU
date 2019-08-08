@@ -1,61 +1,73 @@
-// INSTRUCTIONS
+//  BEGIN JAVASCRIPT
 
-
-// BEGIN JAVASCRIPT //
 $(document).ready(function() {
-    // establish globalVariables
-    var pplArray = [];
+    // GLOBAL VARIABLES
+    const nameArray = [];
+    const zipLocArray = [];
+    
+    //hide the side sction
+    $("#section-sideR").hide();
 
-    $("#user-submitInit").on('click', function(addFrndMdL) {
-     /* TMGChgd/~\ &&('addScreen' var.remove) //  
-      $("#start-screen").hide(); 
-      */
-     //make info dissappear
-     //not sure why shake effect wont work.
-     //$("#screenDelta").effect('shake');
-     $(".initInputInfo").hide();
-
-        //cout >> modal to ELIF(addFriend) endl;
-        //initConsoleLog
-        console.log($(document.modal));
-        console.log($(document.modal).css("hidden"));
-        addFrndMdL = $(".addFrndModal");
-
-        
-        //unCmt This when ready **//addFrndMdL.show();
-        
-
-     //make form bigger
-     
-
-        
-        /* ~~~~~~
-         CSS-REMINDER: to make new classes/ids for new screens 
-         moving thru the app-Functionality!
-        //~~~~~~~~~~~*/
-        
-
-       /*THIS MIGHT GET TAKEN OUT.//
-       /////////////
-        addScreen = $("<div>").addClass("container");
-        console.log(addScreen);
-        console.log("$(#addFriends)");
-        \/\/\/\/\/\/\/\/\/\///\/\/\/\/\*/
-        //at THIS POINT the div is 'created' but it is NOT-shown at this time!
-        //append addScreen to the body WHEN FINSHED CODE*//
-
-
-
-
-       
-       
-
+    //hide the VALUE on click (key input lines(userINIT))
+    $("#input-name").on('click', function(hideUserName) {
+        hideUserName = $("#input-name");
+        hideUserName.val(""); 
     })
+    $("#input-zipLoc").on('click', function(HideUserLoc) {
+        HideUserLoc = $("#input-zipLoc");
+        HideUserLoc.val("");
+    })
+    //submitbuttonINIT(fn)
+    $("#userInitBtn").on('click', function() {
+        var nameData = $("#input-name").val()
+        var zipLocData = $("#input-zipLoc").val();
+        nameArray.push(nameData);
+        zipLocArray.push(zipLocData)
+        //GLOBALarray.push(zipLocData);
+        console.log(nameArray);
+        console.log(zipLocArray);
+
+        $("#introText").html("NOW LETS ADD YOUR FRIENDS!  >>>ON THE RIGHT>>>");
+        $(".form-body").hide();
+        
+        //show side section
+        $("#section-sideR").show();
+        
+    })
+    
+    //Section SHOWS & this is where we add n-amount(friends)//
+    $("#addFriend").on('click', function(hideFriendName) {
+        hideFriendName = $("#addFriend");
+        hideFriendName.val("");
+    })
+    $("#friendZipLoc").on('click', function(hideFriendZipLoc) {
+        hideFriendZipLoc = $("#friendZipLoc");
+        hideFriendZipLoc.val("");
+    })
+        //add freindData to corresponding arrays!
+        $("#moreFriends").on('click', function() {
+            var friendNameData = $("#addFriend").val();
+            var friendZipLocData = $("#friendZipLoc").val();
+            nameArray.push(friendNameData);
+            zipLocArray.push(friendZipLocData);
+            //consoleLog array to check how its doing
+            console.log(nameArray);
+            console.log(zipLocArray);
+            //joke text lol
+            $("#introText").html("C'mon now! I'm sure you got more friends than that now? lol");
+
+            $("#addFriend").val("");
+            $("#friendZipLoc").val("");
+                
+        })
+    //Summation of entries && SECTION.hide();
+    $("#pushDataBtn").on('click', function() {
+        $("#section-sideR").hide();
+        $("#titleLineDelt").text("Woohoo!!!!!");
+        $("#introText").text("You & " + (nameArray.length - 1) +"person(s) are meeting up!");
+    })
+        
 
 
-
+    
 })
-    
-
-
-    
