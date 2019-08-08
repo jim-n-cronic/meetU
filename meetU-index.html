@@ -16,42 +16,41 @@
 
 </head>    
 <body>
-          <!--holds it all together-->
-        <div class="container-fluid">
-          <button type="button" id="initMeetU" class="btn btn-primary">Welcome to MeetU!</button>
-          <div class="row">
-            <div class="col-6" id="leftSide">
-              <!--left side of the document-->
-              <form>
-                  <!--map shows up here-->
+  <body background="assets/images/68427585-artsy-illustration-featuring-a-world-map-made-of-artsy-golden-vines-set-against-a-black-background.jpg">
+   
+    <!--START SCREEN (init)-->
+    <div class="container-fluid">
 
-              </form>
-            
-            </div>
-              <div class="col-6" id="rightSide">
-                <!--right side of the document-->
-                <!--have a MODAL show up here-->
-              </div> 
-          </div>
+      <!--initial userEntryPoint-->
+      <form id="screenDelta" class="animate">
+        
+        <div class="initInputInfo">
+
+          <h1>Welcome to meetU!</h1>
+          <br>
+          <label for="nameIn">Name:</label> <br>
+          <!--INPUT NAME-->
+          <input type="text" id="nameIn">
+          <br>
+          <label for="zipIn">Location:</label> <br>
+          <!--INPUT LOCATION-->
+          <input type="text" id="zipIn">
+          <br>
+          <br>
+          <!--SUBMIT BUTTON-->
+          <br>
+          <br>
+          <input type="button" id="user-submitInit" value="Go To Next Page!"></input>
+
         </div>
-
-
-
-
-<footer>
-  <!--******   HIDDEN UNTIL .on('click', event)   *****-->
-  <div class="container-fluid" id="">
-    <!--this is where the list is going to append-->
-    <!--put a navbar-->
-    <ul id="resultsDropDown">
-      <!--** onClick events for the <li> tags **-->
-        <!--pick date & time-->
-        <!--submit button-->
-        <button type="submit" id="submitBtn" class="btn btn-success">Let's meetU!</button>
-      </ul>
+        
+      </form>
+      <!--modal-->
+      <modal class="addFrndModal" style="visibility: hidden;"></modal>
     </div>
-</footer>
-
-<script src="assets/javascript/meetU-app.js"></script>
-</body>
-</html>
+    <!--startScrn (end)-->
+    
+  </body>
+    <script src="assets/javascript/meetU-app.js"></script>
+  </body>
+  </html>
