@@ -1,6 +1,18 @@
+#headerContainer {
+    background-color: darkorange;
+    border-radius: 8px;
+    font-weight: bold;
+}
 #section-sideR { 
     /*REMINDER TO SET THIS TO HIDDEN WHEN APP IS READY TO TEST!!!!*/
     float: right;
     background-color: darkorange;
     border-radius: 8px;
 } 
+
+.finalizeBtn {
+    border-radius: 8px;
+    background-color: black;
+    color: white;
+}
+

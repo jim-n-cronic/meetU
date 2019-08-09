@@ -27,7 +27,7 @@ $(document).ready(function() {
         console.log(nameArray);
         console.log(zipLocArray);
 
-        $("#introText").html("NOW LETS ADD YOUR FRIENDS!  >>>ON THE RIGHT>>>");
+        $("#introText").html("NOW LETS ADD YOUR FRIENDS! *press '+n' before SUBMIT to enter data*");
         $(".form-body").hide();
         
         //show side section
@@ -46,6 +46,9 @@ $(document).ready(function() {
     })
         //add freindData to corresponding arrays!
         $("#moreFriends").on('click', function() {
+           
+            
+
             var friendNameData = $("#addFriend").val();
             var friendZipLocData = $("#friendZipLoc").val();
             nameArray.push(friendNameData);
@@ -58,19 +61,44 @@ $(document).ready(function() {
 
             $("#addFriend").val("");
             $("#friendZipLoc").val("");
+            //put nameArry to $("#input-arrayData")
+            
             /**
              * MAYBE we can have an interval->TRIGGER either a ...<<endl
              * strtl>>...modal !! quickPopUp{**I think this isnt allowed for this}
              * #JUST a thought */    
         })
-    //Summation of entries && SECTION.hide();
-    $("#pushDataBtn").on('click', function() {
-        $("#section-sideR").hide();
-        $("#titleLineDelt").text("Woohoo!!!!!");
-        $("#introText").text("Party of " + (nameArray.length) + " meeting up! Get the White Claws!!!");
+        //Summation of entries && SECTION.hide();
+        $("#pushDataBtn").on('click', function() {
+            $("#section-sideR").hide();
+            $("#titleLineDelt").text("Woohoo!!!!!");
+            $("#introText").text("Party of " + (nameArray.length) + " meeting up!");
+
+            
+            
+            //loop for name list
+            for(var n = 0; n < nameArray.length; n++) {
+                $("#entryDataList").append('<li>' + nameArray[n] + '</li>');
+                console.log($("#input-arrayData"));
+            }
+            /*
+            var finalizeBtn = $("<button>").addClass("finalizeBtn");
+            $("#headerContainer").append(finalizeBtn);
+            finalizeBtn.text("Ready?");
+            */
+
+            //submitbutton initialize
+            
+        })
+
+        
+        //crossRef the API data
+
+        //make a function that calculates the optimalLocation, meetUpPoint
+    
+        //append MAP to mapDiv
 
     
-    })
     
 
         
