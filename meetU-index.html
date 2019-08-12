@@ -16,55 +16,83 @@
 
 </head>    
 <body>
-  <div class="container" id="headerContainer">
+ <!--contain sectionInput-Init-->
+ <div class="container-fluid">
+   <div class="card-body">
+     <h3>Welcome</h3>
+     <button type="button" id="start-button" class="btn btn-danger">~meetU~</button>
+    </div>
+ </div>
+<!--//  BREAK  \\-->
 
-    <h1 id="titleLineDelt">Welcome to the "meetU" app!</h1>
-    <p id="introText">To get started: Enter all relevant information! We'll take care of the rest!</p>
-      
-    <!--unordered list where names of people will go-->
-    <ul id="entryDataList">
-      <!--entry arrays go here-->
-    </ul>
-    
-  </div>
-  <!--formInput-->
-  <form class="form-body">
-    
-      <input type="text" id="input-name" value="NAME">
-      <br>
-      <input type="text" id="input-zipLoc" value="LOCATION">
-      <!--submitBtn-->
-      <button type="button" id="userInitBtn" class="btn-success">Submit Info!</button>
-    </form>
-      <!--section-tag for the addingFriends && MAP-->
-      <section id="section-sideR">
-        <div class="container">
-          <tbody>
-            <h6>Who else is going to meetU?</h6>
-            <input type="text" id="addFriend" value="FRIEND'S NAME">
-            <br>
-            <input type="text" id="friendZipLoc" value="LOCATION">
-            <button type="button" id="moreFriends" class="btn-warning">+n</button>
-            <button type="button" id="pushDataBtn" class="btn-success">Submit!</button>
-          </tbody>
+ <!--input~section-->
+ <section id="input-section">
+   <div class="container">
+     
+     <!--start flipbox- FRONT-->
+     <div class="flip-box">
+       <div class="flip-box-inner">
+         <div class="flip-box-front">
+           <br><br>
+           <!--FRONT STUFFFFF-->
+           <p>In this application: USER inputs their info,</p>
+           <p>Also pick what kind of venue you're looking for</p>
+           <p>Then we can add your friends to the meetU-list!</p>
+           <!--ENDFRONT--->
+           
+          </div>
+          <!--START BACK-->
+          
+          <div class="flip-box-back">
+            <!-- where the stuff from the APIs will go-->
+            <h6> ~ meetU ~ </h6>
+            <table id="input-table" cellpadding="0" cellspacing="0">
+              <thead>Lets get started!</thead>
+              <br>
+              <tbody id="entrData">
+                <input type="text" id="nameIn">yourName <br>
+                <input type="text" id="zipLocIn">zipCode <br> 
+                
+                <!--radio buttons for type of vibe--> 
+                <h4>issaaVibe!!</h4>
+                <label for="barIn"> 
+                          BAR
+                </label>
+                <input type="radio" id="vibe-bar" value="bar">
+                <br>
+                <label for="clubIn">
+                          CLUB
+                </label>
+                <input type="radio" id="vibe-club" value="club">
+                <br>
+                <label for="loungeIn">
+                          LOUNGE/RESTAURANT
+                </label>  
+                <input type="radio" id="vibe-lounge" value="lounge">
+                <br>
+                <button type="button" class="btn btn-primary" id="userSUBMIT">SUBMIT!</button>
+                </button>
+               </tbody>
+             </table>
+          </div>
+          
         </div>
-        
-      </section> 
-        <!--DIV (defined) where the mapp will show up-->
-        <div id="mapDiv" class="container-fluid">
-          <figure id="figure-map">
-              <!--here's where the map will go-->
+      </div>
+    </div>
+    
+  </section>
+  
+ <!--//  BREAK  \\-->
+ <footer id="SigDataPush">
+   <div class="container animate">
+     <button type="submit" class="btn btn-primary">
+                  Render meetU-data!
+     </button>
 
-            MAP MAP MAP MAP...
-        </figure>
-        <!--collab with team about how this will look!****-->
-        </div>
+   </div>
+ </footer>
 
-  <!--footer for the navDropdown!-->      
-  <footer id="footerTag">
-    vvvvvv NAV BAR SHIT vvvvvv
-    <!--have a navDropDown bar show here after friends are added and rendered into the js semantics functionality-->
-  </footer>
+
 
 
 
