@@ -16,33 +16,35 @@
 
 </head>    
 <body>
- <!--contain sectionInput-Init-->
- <div class="container-fluid">
-   <div class="card-body">
-     <h3>Welcome</h3>
-     <button type="button" id="start-button" class="btn btn-danger">~meetU~</button>
-    </div>
- </div>
-<!--//  BREAK  \\-->
+  <!--// START~~section3_TOP \\-->
+  <section id="nameButtons">
+    <ul id="header-sectionListNames">
+        <!--buttons here(instead of in the box..just display info there!!(map?))-->
 
- <!--input~section-->
+    </ul>
+  </section>
+  <!--\\  END~~section3_TOP  //-->
+ 
+ <!--//~START~\\-->
  <section id="input-section">
    <div class="container">
      
-     <!--start flipbox- FRONT-->
+     <!--// FLIPBOX \\-->
      <div class="flip-box">
        <div class="flip-box-inner">
+
          <div class="flip-box-front">
            <br><br>
-           <!--FRONT STUFFFFF-->
-           <p>In this application: USER inputs their info,</p>
-           <p>Also pick what kind of venue you're looking for</p>
-           <p>Then we can add your friends to the meetU-list!</p>
+           <!--FRONT INFO-TEXT-->
+           <div>
+             <p>WELCOME TO THE meetU-app!</p>
+             <p> this box will flip for you to get started;</p>
+             <p> after youre done, we will get your friends added!</p>
+             <hr>
+           </div>
            <!--ENDFRONT--->
-           
           </div>
           <!--START BACK-->
-          
           <div class="flip-box-back">
             <!-- where the stuff from the APIs will go-->
             <h6> ~ meetU ~ </h6>
@@ -50,48 +52,66 @@
               <thead>Lets get started!</thead>
               <br>
               <tbody id="entrData">
-                <input type="text" id="nameIn">yourName <br>
-                <input type="text" id="zipLocIn">zipCode <br> 
-                
-                <!--radio buttons for type of vibe--> 
-                <h4>issaaVibe!!</h4>
-                <label for="barIn"> 
-                          BAR
-                </label>
-                <input type="radio" id="vibe-bar" value="bar">
+                <input type="text" id="nameIn" value="yourName"> <br>
+                <input type="text" id="zipLocIn" value="zipCode"> <br> 
                 <br>
-                <label for="clubIn">
-                          CLUB
-                </label>
-                <input type="radio" id="vibe-club" value="club">
-                <br>
-                <label for="loungeIn">
-                          LOUNGE/RESTAURANT
-                </label>  
-                <input type="radio" id="vibe-lounge" value="lounge">
-                <br>
-                <button type="button" class="btn btn-primary" id="userSUBMIT">SUBMIT!</button>
+                <button type="button" class="btn btn-lg btn-primary" id="userSUBMIT">~SUBMIT~</button>
                 </button>
                </tbody>
              </table>
           </div>
-          
+
         </div>
       </div>
     </div>
-    
   </section>
-  
- <!--//  BREAK  \\-->
- <footer id="SigDataPush">
-   <div class="container animate">
-     <button type="submit" class="btn btn-primary">
-                  Render meetU-data!
-     </button>
+ <!--\\BREAK//-->
+ 
+<!--//START~~NEW SECTION\\-->
+<div id="nuSect-friendsPN">
+  <div class="container">
+      <!--FlipBox-Nu-->
+      <div class="flip-box">
+        <div class="flip-box-inner">
+            <!--front-->
+          <div class="flip-box-front">
+            <br>
+            <!--stuff here-->
+            <div id="confirmDataArea">
+              <!--insert here via jQuery!-->
+              <h5 id="insertJStext">yoooo</h5>
+              <div id="hold-objData">
+                <!--stuff here too-->
+                <ul id="nameList">
+                  <!--list.js ADD-IN-->
+                </ul>
 
-   </div>
- </footer>
+              </div>
+            </div>  
+          </div>
+          <!--end of FRONTbox conten(s)-->
 
+          <!--back-->
+          <div class="flip-box-back">
+            <h5 id="sectTwoTxtHead">THAT'S THE SPIRIT!</h5>
+            <p id="secT-pTagHeadsub">now, now, we know you got some friends...<br>let's get them to meetU!</p>
+            <!--friend inputs-->
+                <label for="add-nuName">Friend's name:</label> <br>
+            <input type="text" id="add-nuName">
+                            <br>
+                <label for="add-nuZipCode">Friend's zipCode:</label> <br>
+            <input type="text" id="add-nuZipCode"> 
+                        <br>
+            <button type="button" id="nuSubmit" class="btn btn-primary">~GO~</button>
+               <p id="showPostClick">move mouse UP(this.window)</p>
+                                  
+          </div>
+          <!--END BACK-->
+        </div>
+      </div>
+  </div>
+</div>
+<!--\\END~~this/.\SECTION//-->
 
 
 

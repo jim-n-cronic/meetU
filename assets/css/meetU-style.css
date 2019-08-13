@@ -1,23 +1,11 @@
-.container-fluid {
-    text-align: center;
-    margin-top: 20%;
-}
-.card-body {
-    background-color: darkgrey;
-}
-h3 {
-    color: red;
-    font-weight: bolder;
-}
+
+
 
 .btn:hover {
     background-color: darkorange;
 }
 
-#input-section {
-    visibility: none;
-    
-}
+
 .container {
     margin-top: 25%;
 
@@ -42,9 +30,6 @@ h3 {
     transform-style: preserve-3d;
     
   }
-  #nameIn {
-      margin-left: 13.15px;
-  }
   
   /* Do an horizontal flip when you move the mouse over the flip box container */
   .flip-box:hover .flip-box-inner {
@@ -61,8 +46,9 @@ h3 {
   
   /* Style the front side */
   .flip-box-front {
-    background-color: rgb(153, 0, 255);
+    background-color: rgba(255, 81, 0, 0.932);
     color: black;
+    height: 48vh;
   }
   p {
       color: white;
@@ -75,11 +61,21 @@ h3 {
     color:white;
     font-weight: bolder;
     transform: rotateX(180deg);
-    height: 42vh;
+    height: 48vh;
   }
   label {
       font-weight: bolder;
   }
- 
 
-  
+  #sectTwoTxtHead {
+      font-weight: bolder;
+  }
+  #secT-pTagHeadsub {
+      font-weight: bold;
+  }
+ 
+button {
+  background-color: blueviolet;
+  color: white;
+  font-weight: bold;
+}
