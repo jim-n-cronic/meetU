@@ -37,23 +37,23 @@
     cursor: default;
  
     text-transform: uppercase;
-    font-family: Tahoma;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
  
-    background: #141517;
+    background: #ffffff;
  
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
  
-    -webkit-box-shadow: 0px 1px 1px rgba(255,255,255, .1), inset 0px 1px 1px rgb(0,0,0);
-    -moz-box-shadow: 0px 1px 1px rgba(255,255,255, .1), inset 0px 1px 1px rgb(0,0,0);
-    box-shadow: 0px 1px 1px rgba(255,255,255, .1), inset 0px 1px 1px rgb(0,0,0);
+    -webkit-box-shadow: 0px 1px 1px rgba(0,0,0), inset 0px 1px 1px rgb(0,0,0);
+    -moz-box-shadow: 0px 1px 1px rgba(0,0,0), inset 0px 1px 1px rgb(0,0,0);
+    box-shadow: 0px 1px 1px rgba(0,0,0), inset 0px 1px 1px rgb(0,0,0);
 }
 .ui-datepicker-header {
     position: relative;
     padding-bottom: 10px;
-    border-bottom: 1px solid #d6d6d6;
+    border-bottom: 1px solid black;
 }
  
 .ui-datepicker-title { text-align: center; }
@@ -61,12 +61,12 @@
 .ui-datepicker-month {
     position: relative;
     padding-right: 15px;
-    color: #565656;
-}
+    color:black;
+}s
  
 .ui-datepicker-year {
     padding-left: 8px;
-    color: #a8a8a8;
+    color: black;
 }
 .ui-datepicker-month:before {
     display: block;
@@ -130,7 +130,7 @@ ui-datepicker-prev,
  
     text-align: center;
     font-weight: normal;
-    color: #a8a8a8;
+    color:black;
 }
 .ui-datepicker-calendar td {
     padding: 0 7px;
@@ -145,7 +145,7 @@ ui-datepicker-prev,
     outline: none;
  
     text-decoration: none;
-    color: #a8a8a8;
+    color: black;
  
     border: 1px solid transparent;
 }
@@ -154,17 +154,20 @@ ui-datepicker-prev,
     border: 1px solid #6a9113;
 }
  
-.ui-datepicker-other-month .ui-state-default { color: #565656; }
+.ui-datepicker-other-month .ui-state-default { color:black; }
 .document {
   -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
+}
+
+p   {
+    font-family: Arial, Helvetica, sans-serif
 }
 </style>
 </head>
 <body>
 
-<p>Choose a date: <input type="text" id="datepicker"></p>
-
+    <div id="datepicker"></div>
 
 </body>
 </html> 
