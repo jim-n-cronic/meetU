@@ -7,7 +7,7 @@
 
 
 .container {
-    margin-top: 25%;
+    align-items: center;
 
 }
 
@@ -75,7 +75,14 @@
   }
  
 button {
+  margin-left: 13.487%;
   background-color: blueviolet;
   color: white;
   font-weight: bold;
+}
+ h8{
+  font-weight: bolder;
+}
+#nameButtons {
+  margin-bottom: 25%;
 }

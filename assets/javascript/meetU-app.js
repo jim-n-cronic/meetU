@@ -2,6 +2,8 @@ $(document).ready(function() {
     const sectTwo = $("#nuSect-friendsPN");
     sectTwo.hide();
     $("#showPostClick").hide();
+    $("#info-chgConf").hide();
+    //$("#finalSubmit").hide();
     //show this later after submitting all friends
     ///////////
     // global 
@@ -57,6 +59,7 @@ $(document).ready(function() {
         
         zipPP = newZipIN.val();
             meetU.zipCode.push(zipPP);
+
         //console.log(this)
         console.log(meetU);
         console.log(meetU.name);
@@ -75,17 +78,52 @@ $(document).ready(function() {
             $("#header-sectionListNames").empty();
         //have loop of meetU.name.length appendTo 
         for (var n = 0; n < meetU.name.length; n++) {
-            $("#header-sectionListNames").append('<button>'+meetU.name[n]+'</button>'+'<br>');
-
+            $("#header-sectionListNames").append('<button class="pplChange" data-index='+n+'>'+meetU.name[n]+'</button>'+'<br>');
+            $("#info-chgConf").show();
+            //$("#finalSubmit").show();
         }//this loop keep repeating the whole array like last time, maybe the loop should go sooner!???
         //ASK FOR HELP!!!!
         //ALMOST GOT IT CRACKED!!!!!
-        
+       
                                 
     })
     
 
+  function render(){
+    $("#header-sectionListNames").empty()
+    for (var n = 0; n < meetU.name.length; n++) {
+        $("#header-sectionListNames").append('<button class="pplChange" data-index='+n+'>'+meetU.name[n]+'</button>'+'<br>');
+        $("#info-chgConf").show();
+        //$("#finalSubmit").show();
+    }
+  }
 
+    
+        $(document).on('click',".pplChange", function() {
+            
+            var selectedBtn = $(this);
+            var selectedIndex = selectedBtn.data("index");
 
+            console.log(meetU.name[selectedIndex]);
 
+            meetU.name.splice(selectedIndex,1);
+            meetU.zipCode.splice(selectedIndex,1);
+            console.log(meetU);
+            //call render function!!
+            render();
+          
+            
+            //console activity
+            
+            // removes button && removes data from array
+            
+            
+            // check object activity
+            console.log(meetU);
+            
+            
+            
+        })
+    
 })
+
