@@ -223,9 +223,14 @@
             margin-bottom: 10px;
         }
 
+        .divCenter {
+            text-align: center;
+        }
+
     </style>
+    <br>
     <div class="container">
-        <div class=detailDiv>
+        <div class=headingDiv>
             <div class="jumbotron">
                 <h1 class="text-center">M
                     <i class="fas fa-sm fa-hamburger"></i>
@@ -280,18 +285,87 @@
                         <h7 id="meetCost"></h7>
                         <hr>
                         <hr>
-                        <button type="button" class="btn btn-primary btn-space">Select</button><a
-                            id="meetLink"></a><button type="button" class="btn btn-success btn-space" onClick="window.location.reload()">New Choice</button>
+                        <button type="button" class="btn btn-success btn-space" onClick="window.location.reload()">New
+                            Choice</button>
+                        <a id="meetLink"></a> <!-- populated dynamically w/Yelp URL for selected Meet spot -->
+                        <button type="button" id="select" class="btn btn-primary btn-space">Select</button>
                     </div>
                 </div>
             </div>
+            <br>
+        </div>
+
+        <div class=schedDiv>
+            <div class="jumbotronDet">    
+                <div class="row"> 
+                    <div class="col-md-1"></div> 
+                    <div class="col-md-11">
+                        <h3><br><div id="weatherLoc"></div></h3><br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-1">
+                        <div class="card" style="width: 80px">
+                            <img id="0-0" height="80" width="80" alt="Yelp image">
+                            <div class="divCenter" id="w0-0"></div>
+                            <!-- <img id="restPic" class="img-thumbnail" alt="Responsive image"> -->
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="card" style="width: 80px">
+                            <img id="0-1" height="80" width="80" alt="Yelp image">
+                            <div class="divCenter" id="w0-1"></div>
+                            <!-- <img id="restPic" class="img-thumbnail" alt="Responsive image"> -->
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="card" style="width: 80px">
+                            <img id="0-2" height="80" width="80" alt="Yelp image">
+                            <div class="divCenter" id="w0-2"></div>
+                            <!-- <img id="restPic" class="img-thumbnail" alt="Responsive image"> -->
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="card" style="width: 80px">
+                            <img id="0-3" height="80" width="80" alt="Yelp image">
+                            <div class="divCenter" id="w0-3"></div>
+                            <!-- <img id="restPic" class="img-thumbnail" alt="Responsive image"> -->
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="card" style="width: 80px">
+                            <img id="0-4" height="80" width="80" alt="Yelp image">
+                            <div class="divCenter" id="w0-4"></div>
+                            <!-- <img id="restPic" class="img-thumbnail" alt="Responsive image"> -->
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="card" style="width: 80px">
+                            <img id="0-5" height="80" width="80" alt="Yelp image">
+                            <div class="divCenter" id="w0-5"></div>
+                            <!-- <img id="restPic" class="img-thumbnail" alt="Responsive image"> -->
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="card" style="width: 80px">
+                            <img id="0-6" height="80" width="80" alt="Yelp image">
+                            <div class="divCenter" id="w0-6"></div>
+                            <!-- <img id="restPic" class="img-thumbnail" alt="Responsive image"> -->
+                        </div><br><br>
+                    </div>
+                </div>
+            </div><br></br>
         </div>
     </div>
 
     <script>
+
         $('.detailDiv').hide();
-        var searchMeets = function (meetsSpot) {
-            var queryURL = "https://radiant-temple-43796.herokuapp.com/yapi/byzip/" + meetsSpot;
+        $('.schedDiv').hide();
+
+        var searchMeets = function (meetsLat, meetsLong) {
+            var queryURL = "https://radiant-temple-43796.herokuapp.com/yapi/bylatlong/" + meetsLat + "/" + meetsLong;
             $.ajax({
                 url: queryURL,
                 method: "GET"
@@ -320,6 +394,17 @@
                 }
             });
         };
+
+        $(document.body).on("click", "#select", function () {
+
+          //  $('.detailDiv').hide();
+            $('.schedDiv').show();
+            window.scrollTo(0,document.body.scrollHeight);
+            for (let x=0; x < 7; x++) {
+                
+            }
+
+        })
 
         $(document.body).on("click", ".yButton", function () {
             var selectedID = $(this).attr("yLinkID");
@@ -351,8 +436,10 @@
                     $("#meetLoc1").append(response.location.display_address[x]);
                     $("#meetLoc1").append("<br>");
                 }
+                meetsLocale = response.location.city + ", " + response.location.state;
+                $("#weatherLoc").text("7 day forecast for " + meetsLocale);
                 var yellButton = $("<a>");
-            
+
                 yellButton.attr("href", response.url);
                 yellButton.text("Open Yelp");
                 yellButton.attr("target", "_blank");
@@ -364,6 +451,7 @@
                 $("#meetRat").text(meetRat);
                 meetCost = response.price;
                 $("#meetCost").text(meetCost);
+                $('.detailDiv').show();
             })
             var queryURL = "https://api.weather.gov/points/" + meetLat + "," + meetLong;
 
@@ -381,9 +469,11 @@
                     method: "GET"
                 }).then(function (response) {
                     console.log(response);
-                    for (let x = 0; x < 14; x++) {
-                        // weatherPic.src = response.properties.periods[x].icon;
-                        // console.log(response.properties.periods[x].name + ": " + response.properties.periods[x].shortForecast)
+                    for (let x = 0; x < 7; x++) {
+                        weatherPic = response.properties.periods[x*2].icon;
+                        $("#0-" + x).attr("src", weatherPic);
+                        $("#w0-" + x).html(response.properties.periods[x*2].temperature + "'F<br>Wind: " + response.properties.periods[x*2].windSpeed);
+                        console.log(response.properties.periods[x].name + ": " + response.properties.periods[x].shortForecast)
                     }
                 });
             });
@@ -393,7 +483,7 @@
         meetLat = "";
         responseRet = "";
 
-        searchMeets("07922");
+        searchMeets("40.709937","-73.848305892030");
         var forecastURL = "";
 
         $('.detailDiv').show();
