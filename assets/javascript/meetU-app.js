@@ -120,6 +120,10 @@ $(document).ready(function() {
     }
     // ~| MAJOR KEY << MAP FUNCTIONALITY |~
     $("#finalSubmit").on('click', function () {
+        window.open("./yapi_client2.html");
+        //searchMeets(meetU.zipCode[0]);
+
+
         console.log("FINALIZE(grn)Btn works!");
         console.log(meetU);
         console.log(meetU.zipCode);
