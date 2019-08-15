@@ -51,6 +51,22 @@ $(document).ready(function() {
     const newZipIN = $("#add-nuZipCode");
     const pushClrIN = $("#nuSubmit");
 
+    //create a function for the map to show in the $("#mapLocation")
+    //later << reCall(this.fucntion) ^^^^^^^^^^ //
+    function renderMap() {
+        //def variable for the map placeHolder
+        const map = $("#mapFigure");
+        // def queryURL;
+        // * && def API key;
+
+        // $.ajax({queryURL+API, GET})
+        // \cont'd\.then(function(callBacks))  \\START//
+
+        //                                     \\BREAK//
+
+    }
+
+
     //nuSubmit btn on click function
     pushClrIN.on('click', function() {
         
@@ -70,58 +86,61 @@ $(document).ready(function() {
         newZipIN.val('');
         console.log(meetU);  // ALL GOOD UP TO HERE!!!
         ////////\\\/\/\/\/\/\/\/\/\ FAIL/SAFE POINT!!!!!
+        //call function {{above pushClrIN.onClick}}
+    //-cmBk.fn    renderMap();
+        
 
-        // Now \below: we will add some quirts for humorus messages/       
-        //~~funnyStuff \/BEGIN\/
-        //switch statment(meetU.length <= 2, meetU.length >= 4, BREAK)
-        //~~funnyStuff /\ END /\
-            $("#header-sectionListNames").empty();
+        $("#header-sectionListNames").empty();
         //have loop of meetU.name.length appendTo 
         for (var n = 0; n < meetU.name.length; n++) {
             $("#header-sectionListNames").append('<button class="pplChange" data-index='+n+'>'+meetU.name[n]+'</button>'+'<br>');
+            
             $("#info-chgConf").show();
             //$("#finalSubmit").show();
         }//this loop keep repeating the whole array like last time, maybe the loop should go sooner!???
         //ASK FOR HELP!!!!
         //ALMOST GOT IT CRACKED!!!!!
-       
-                                
+        
+        
     })
     
-
-  function render(){
-    $("#header-sectionListNames").empty()
-    for (var n = 0; n < meetU.name.length; n++) {
-        $("#header-sectionListNames").append('<button class="pplChange" data-index='+n+'>'+meetU.name[n]+'</button>'+'<br>');
-        $("#info-chgConf").show();
-        //$("#finalSubmit").show();
-    }
-  }
-
     
-        $(document).on('click',".pplChange", function() {
+   
+    function render(){
+        $("#header-sectionListNames").empty()
+        for (var n = 0; n < meetU.name.length; n++) {
+            $("#header-sectionListNames").append('<button class="pplChange" data-index='+n+'>'+meetU.name[n]+'</button>'+'<br>');
+            $("#info-chgConf").show();
+            
+        }
+    }
+    
+    $("#finalSubmit").on('click', function () {
+        console.log("FINALIZE(grn)Btn works!");
+        console.log(meetU);
+        console.log(meetU.zipCode);
+    })
+    
+    $(document).on('click',".pplChange", function() {
             
             var selectedBtn = $(this);
             var selectedIndex = selectedBtn.data("index");
 
             console.log(meetU.name[selectedIndex]);
 
+            // removes button && removes data from array
             meetU.name.splice(selectedIndex,1);
             meetU.zipCode.splice(selectedIndex,1);
             console.log(meetU);
             //call render function!!
             render();
-          
-            
-            //console activity
-            
-            // removes button && removes data from array
-            
-            
             // check object activity
             console.log(meetU);
             
-            
+            //////////////////
+            //insert map callBackFucntion
+            //AJAX
+
             
         })
     
