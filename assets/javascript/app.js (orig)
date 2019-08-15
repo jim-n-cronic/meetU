@@ -84,24 +84,14 @@ function codeAddress(zipCode) {
                 //structure that google gives back -> R
                 var selectedLong = event.latLng.lng();
                 var selectedLat = event.latLng.lat();
-                
                 //SEND TO BACKEND
                 //toBackend(selectedLat,selectedLong);
-
-                   
+                    
                 var queryURL = "https://radiant-temple-43796.herokuapp.com/yapi/bylatlong/" + selectedLat + "/" + selectedLong;
                 console.log(queryURL);
                 console.log(event.latLng);
-                console.log("yerrrrrr");
-                console.log(event);
-                console.log(latLng);
                 placeMarker(event.latLng, map);
-                // \\|//
-                //14:59--MIKE: searchMeets(selectedLat,selectedLong);
-                //searchMeets(selectedLat, selectedLong);
-                // //|\\
 
-                
                 $.ajax({
                     url: queryURL,
                     method: "GET"
@@ -109,7 +99,7 @@ function codeAddress(zipCode) {
                     console.log(response);
                     console.log(response[0].name);
                 })
-                
+
 
             });
 
@@ -178,7 +168,6 @@ function initAutocomplete() {
                 title: place.name,
                 position: place.geometry.location
             }));
-            
 
             if (place.geometry.viewport) {
                 // Only geocodes have viewport.
