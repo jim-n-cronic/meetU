@@ -212,7 +212,7 @@
         //  ^ these two lines needs to be uncommented if we are successful @ getting Google Maps to pass lat / long
         //    else ... use the (2) by zip lines below this line;
 
-        var searchMeets = function (meetsZip) {     /* primary search method passed by map function */
+        var searchMeets = function (meetZip) {     /* primary search method passed by map function */
             var queryURL = "https://radiant-temple-43796.herokuapp.com/yapi/bylatlong/" + meetZip;
 
             $.ajax({
