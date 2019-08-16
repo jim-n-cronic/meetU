@@ -65,14 +65,15 @@
         .divCenter {
             text-align: center;
         }
-
     </style>
-    <br>                                                
+    <br>
     <div class="container">
-        <div class=headingDiv>                                  <!-- Results title div -->
+        <div class=headingDiv>
+            <!-- Results title div -->
             <div class="jumbotron">
                 <h1 class="text-center">M
-                    <i class="fas fa-sm fa-hamburger"></i>      <!--- Hamburger characters / key embedded below -->
+                    <i class="fas fa-sm fa-hamburger"></i>
+                    <!--- Hamburger characters / key embedded below -->
                     <i class="fas fa-sm fa-hamburger"></i>
                     T-U</h1>
                 <h3 class="text-center">Find a new favorite <font size="2">(or least favorite)</font> meeting spot !!
@@ -83,25 +84,28 @@
                 <img align="right" src="./assets/images/noaa.jpeg" id="logos" alt="NOAA image">
             </div>
         </div>
-        <div id="numRest"><h2>Searching...</h2></div>
-           <!-- dymamic total row -->
-        <div class=detailDiv>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Select</th>                 <!-- Results header -->
-                    <th scope="col">Name (cost)</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">Location</th>
-                    <th scope="col">Rating</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- addt'l rows inserted here -->
-            </tbody>
-        </table>
+        <div id="numRest">
+            <h2>Searching...</h2>
         </div>
-        <div class=selectedDiv>                   <!-- selected div displayed after primary slection from list uses show/hide -->
+        <!-- dymamic total row -->
+        <div class=detailDiv>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Select</th> <!-- Results header -->
+                        <th scope="col">Name (cost)</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- addt'l rows inserted here -->
+                </tbody>
+            </table>
+        </div>
+        <div class=selectedDiv>
+            <!-- selected div displayed after primary slection from list uses show/hide -->
             <div class="jumbotronDet">
                 <div class="row">
                     <div class="col-md-3">
@@ -134,12 +138,15 @@
             <br>
         </div>
 
-        <div class=schedDiv>                   <!-- Summary jumbo for weather and other details -->
-            <div class="jumbotronDet">    
-                <div class="row"> 
-                    <div class="col-md-1"></div> 
+        <div class=schedDiv>
+            <!-- Summary jumbo for weather and other details -->
+            <div class="jumbotronDet">
+                <div class="row">
+                    <div class="col-md-1"></div>
                     <div class="col-md-11">
-                        <h3><br><div id="weatherLoc"></div></h3><br>
+                        <h3><br>
+                            <div id="weatherLoc"></div>
+                        </h3><br>
                     </div>
                 </div>
                 <div class="row">
@@ -206,7 +213,7 @@
         //    else ... use the (2) by zip lines below this line;
 
         var searchMeets = function (meetsZip) {     /* primary search method passed by map function */
-        var queryURL = "https://radiant-temple-43796.herokuapp.com/yapi/bylatlong/" + meetZip;
+            var queryURL = "https://radiant-temple-43796.herokuapp.com/yapi/bylatlong/" + meetZip;
 
             $.ajax({
                 url: queryURL,
@@ -239,10 +246,17 @@
             });
         };
 
+        var urlParam = function (name, w) {
+            w = w || window;
+            var rx = new RegExp('[\&|\?]' + name + '=([^\&\#]+)'),
+                val = w.location.search.match(rx);
+            return !val ? '' : val[1];
+        }
+
         // onclick event registration for the final select button
         $(document.body).on("click", "#select", function () {   /* final slection shows selected/built and scrolls to bottom */
             $('.schedDiv').show();
-            window.scrollTo(0,document.body.scrollHeight);
+            window.scrollTo(0, document.body.scrollHeight);
 
             /* insert 'send invite' logic/connector here if we get to it */
         })
@@ -293,7 +307,7 @@
                 $("#meetRat").text(meetRat);
                 meetCost = response.price;
                 $("#meetCost").text(meetCost);
-                
+
             })
             var queryURL = "https://api.weather.gov/points/" + meetLat + "," + meetLong; /* setup primary weather lookup */
 
@@ -313,15 +327,16 @@
                 }).then(function (response) {
                     console.log(response);
                     for (let x = 0; x < 7; x++) {
-                        weatherPic = response.properties.periods[x*2].icon;
+                        weatherPic = response.properties.periods[x * 2].icon;
                         $("#0-" + x).attr("src", weatherPic); /* dynamically populate 7-cards */
-                        $("#w0-" + x).html(response.properties.periods[x*2].temperature + "'F<br>Wind: " + response.properties.periods[x*2].windSpeed);
+                        $("#w0-" + x).html(response.properties.periods[x * 2].temperature + "'F<br>Wind: " + response.properties.periods[x * 2].windSpeed);
                         console.log(response.properties.periods[x].name + ": " + response.properties.periods[x].shortForecast)
                     }
                 });
             });
             $('.selectedDiv').show();
         });
+
         $('.detailDiv').hide();
         $('.selectedDiv').hide();         /* hide inactive divs */
         $('.schedDiv').hide();
@@ -330,13 +345,12 @@
         meetLat = "";                     // unused for now
         responseRet = "";
         var forecastURL = "";
-        var querystring = window.location.querystring;
-        var zipIn = querystring["zip"];
+        var zipIn = urlParam('zip');
 
         //searchMeets("40.709937","-73.848305892030"); // stub for lat/long test; ultimately, other code calls the searchMeets function with Lat/Long
 
         searchMeets(zipIn);                            // stub for prototype 
-        
+
     </script>
 </body>
 
