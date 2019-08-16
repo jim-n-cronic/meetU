@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Meet-U</title>
+    <title>MeetU</title>
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
     <script src="https://kit.fontawesome.com/00e711a3ed.js"></script>
@@ -13,6 +13,167 @@
 
 <body>
     <style>
+        .ui-datepicker,
+        .ui-datepicker table,
+        .ui-datepicker tr,
+        .ui-datepicker td,
+        .ui-datepicker th {
+            margin: 0;
+            padding: 0;
+            border: none;
+            border-spacing: 0;
+        }
+
+        .ui-datepicker {
+            display: none;
+            width: 294px;
+            padding: 35px;
+            cursor: default;
+
+            text-transform: uppercase;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+
+            background: #ffffff;
+
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+
+            -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0), inset 0px 1px 1px rgb(0, 0, 0);
+            -moz-box-shadow: 0px 1px 1px rgba(0, 0, 0), inset 0px 1px 1px rgb(0, 0, 0);
+            box-shadow: 0px 1px 1px rgba(0, 0, 0), inset 0px 1px 1px rgb(0, 0, 0);
+        }
+
+        .ui-datepicker-header {
+            position: relative;
+            padding-bottom: 10px;
+            border-bottom: 1px solid black;
+        }
+
+        .ui-datepicker-title {
+            text-align: center;
+        }
+
+        .ui-datepicker-month {
+            position: relative;
+            padding-right: 15px;
+            color: black;
+        }
+
+        s .ui-datepicker-year {
+            padding-left: 8px;
+            color: black;
+        }
+
+        .ui-datepicker-month:before {
+            display: block;
+            position: absolute;
+            top: 5px;
+            right: 0;
+            width: 5px;
+            height: 5px;
+            content: '';
+
+            background: #a5cd4e;
+            background: -moz-linear-gradient(top, #a5cd4e 0%, #6b8f1a 100%);
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #a5cd4e), color-stop(100%, #6b8f1a));
+            background: -webkit-linear-gradient(top, #a5cd4e 0%, #6b8f1a 100%);
+            background: -o-linear-gradient(top, #a5cd4e 0%, #6b8f1a 100%);
+            background: -ms-linear-gradient(top, #a5cd4e 0%, #6b8f1a 100%);
+            background: linear-gradient(top, #a5cd4e 0%, #6b8f1a 100%);
+
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+        }
+
+        ui-datepicker-prev,
+        .ui-datepicker-next {
+            position: absolute;
+            top: -2px;
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        .ui-datepicker-prev {
+            left: 0;
+            padding-left: 0;
+        }
+
+        .ui-datepicker-next {
+            right: 0;
+            padding-right: 0;
+        }
+
+        .ui-datepicker-prev span,
+        .ui-datepicker-next span {
+            display: block;
+            width: 5px;
+            height: 10px;
+            text-indent: -9999px;
+            color: black;
+            background-image: url("the-small-arrow-right-arrow-right-arrows-icon-with-png-317355.png");
+            background-color: black;
+        }
+
+        .ui-datepicker-prev span {
+            background-position: 0px 0px;
+        }
+
+        .ui-datepicker-next span {
+            background-position: -5px 0px;
+        }
+
+        .ui-datepicker-prev-hover span {
+            background-position: 0px -10px;
+        }
+
+        .ui-datepicker-next-hover span {
+            background-position: -5px -10px;
+        }
+
+        .ui-datepicker-calendar th {
+            padding-top: 15px;
+            padding-bottom: 10px;
+
+            text-align: center;
+            font-weight: normal;
+            color: black;
+        }
+
+        .ui-datepicker-calendar td {
+            padding: 0 7px;
+
+            text-align: center;
+            line-height: 26px;
+        }
+
+        .ui-datepicker-calendar .ui-state-default {
+            display: block;
+            width: 26px;
+            outline: none;
+
+            text-decoration: none;
+            color: black;
+
+            border: 1px solid transparent;
+        }
+
+        .ui-datepicker-calendar .ui-state-active {
+            color: #6a9113;
+            border: 1px solid #6a9113;
+        }
+
+        .ui-datepicker-other-month .ui-state-default {
+            color: black;
+        }
+
+        .document {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
         p {
             font-family: Arial, Helvetica, sans-serif
         }
@@ -67,12 +228,12 @@
         }
 
     </style>
-    <br>                                                
+    <br>
     <div class="container">
-        <div class=headingDiv>                                  <!-- Results title div -->
+        <div class=headingDiv>
             <div class="jumbotron">
                 <h1 class="text-center">M
-                    <i class="fas fa-sm fa-hamburger"></i>      <!--- Hamburger characters / key embedded below -->
+                    <i class="fas fa-sm fa-hamburger"></i>
                     <i class="fas fa-sm fa-hamburger"></i>
                     T-U</h1>
                 <h3 class="text-center">Find a new favorite <font size="2">(or least favorite)</font> meeting spot !!
@@ -83,13 +244,14 @@
                 <img align="right" src="./assets/images/noaa.jpeg" id="logos" alt="NOAA image">
             </div>
         </div>
-        <div id="numRest"><h2>Searching...</h2></div>
-           <!-- dymamic total row -->
-        <div class=detailDiv>
+
+        <h2 id="numRest"> results: sort order <font size="5">on</font> rating (high to low)</h2>
+        <p>Select a meeting place by clicking on the 'yelp' logo</p>
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">Select</th>                 <!-- Results header -->
+                    <!-- The scope attribute specifies that this is a header for a column -->
+                    <th scope="col">Select</th>
                     <th scope="col">Name (cost)</th>
                     <th scope="col">Category</th>
                     <th scope="col">Location</th>
@@ -100,8 +262,7 @@
                 <!-- addt'l rows inserted here -->
             </tbody>
         </table>
-        </div>
-        <div class=selectedDiv>                   <!-- selected div displayed after primary slection from list uses show/hide -->
+        <div class=detailDiv>
             <div class="jumbotronDet">
                 <div class="row">
                     <div class="col-md-3">
@@ -134,7 +295,7 @@
             <br>
         </div>
 
-        <div class=schedDiv>                   <!-- Summary jumbo for weather and other details -->
+        <div class=schedDiv>
             <div class="jumbotronDet">    
                 <div class="row"> 
                     <div class="col-md-1"></div> 
@@ -200,27 +361,23 @@
 
     <script>
 
-        //  var searchMeets = function (meetsLat, meetsLong) {     /* primary search method passed by map function */
-        //  var queryURL = "https://radiant-temple-43796.herokuapp.com/yapi/bylatlong/" + meetsLat + "/" + meetsLong;
-        //  ^ these two lines needs to be uncommented if we are successful @ getting Google Maps to pass lat / long
-        //    else ... use the (2) by zip lines below this line;
+        $('.detailDiv').hide();
+        $('.schedDiv').hide();
 
-        var searchMeets = function (meetsZip) {     /* primary search method passed by map function */
-        var queryURL = "https://radiant-temple-43796.herokuapp.com/yapi/bylatlong/" + meetZip;
-
+        var searchMeets = function (meetsLat, meetsLong) {
+            var queryURL = "https://radiant-temple-43796.herokuapp.com/yapi/bylatlong/" + meetsLat + "/" + meetsLong;
             $.ajax({
                 url: queryURL,
                 method: "GET"
             }).then(function (response) {
                 console.log(response)
-                response.sort(function (a, b) {         /* primary sort on rating, descending */
+                response.sort(function (a, b) {
                     return b.rating - a.rating
                 })
                 responseRet = response;
-                $("#numRest").html("<h2>" + response.length + " results: sort order <font size='5'>on</font> rating (high to low)</h2><p>Select a meeting place by clicking on the 'yelp' logo</p>");
-
-                for (let meetCnt = 0; meetCnt < response.length; meetCnt++) {  // populates table with composed detail lines
-                    var meetRow = $("<tr>");                                   // 'yLinkID' is used for onclick reference to retrieve the 'full' record
+                $("#numRest").prepend(response.length);
+                for (let meetCnt = 0; meetCnt < response.length; meetCnt++) {
+                    var meetRow = $("<tr>");
                     meetRow.attr("yLinkID", response[meetCnt].id);
                     meetRow.addClass("yButton");
                     var meetBullet = $("<td>").html('<img src="./assets/images/Yelp_burst_positive_RGB.png" height="35" width="35">');
@@ -235,33 +392,34 @@
                     meetRow.attr("id", meetCnt);
                     $("tbody").append(meetRow);
                 }
-                $('.detailDiv').show();
             });
         };
 
-        // onclick event registration for the final select button
-        $(document.body).on("click", "#select", function () {   /* final slection shows selected/built and scrolls to bottom */
+        $(document.body).on("click", "#select", function () {
+
+          //  $('.detailDiv').hide();
             $('.schedDiv').show();
             window.scrollTo(0,document.body.scrollHeight);
+            for (let x=0; x < 7; x++) {
+                
+            }
 
-            /* insert 'send invite' logic/connector here if we get to it */
         })
 
-        // onclick event registration for selection of a restaurant from the list of results
         $(document.body).on("click", ".yButton", function () {
             var selectedID = $(this).attr("yLinkID");
             var selectedNum = $(this).attr("id");
             selectedNum++;
-            for (let x = selectedNum; x < 50; x++)    /* code removes all restaurants following selected */
+            for (let x = selectedNum; x < 50; x++)
                 $('#' + x).empty();
-            for (let x = 0; x < selectedNum - 1; x++) /* code to remove aka EMPTY all restaurants prior to selecdted */
+            for (let x = 0; x < selectedNum - 1; x++)
                 $('#' + x).empty();
 
-            meetLong = responseRet[selectedNum - 1].coordinates.longitude;  /* pull selected Meet spot long/lat and YELP ID for more detailed lookup */
+            meetLong = responseRet[selectedNum - 1].coordinates.longitude;
             meetLat = responseRet[selectedNum - 1].coordinates.latitude;
             meetID = responseRet[selectedNum - 1].id;
 
-            var queryURL = "https://radiant-temple-43796.herokuapp.com/yapi/byid/" + meetID;  /* "byid" method of the YAPI connector hosted on Heroku */
+            var queryURL = "https://radiant-temple-43796.herokuapp.com/yapi/byid/" + meetID;
 
             $.ajax({
                 url: queryURL,
@@ -274,14 +432,14 @@
                 meetCat = response.categories[0].title;
                 $("#meetCat").text(meetCat);
 
-                for (let x = 0; x < response.location.display_address.length; x++) {   /* pull formatted addresses which  may be one or more lines */
+                for (let x = 0; x < response.location.display_address.length; x++) {
                     $("#meetLoc1").append(response.location.display_address[x]);
                     $("#meetLoc1").append("<br>");
                 }
-                meetsLocale = response.location.city + ", " + response.location.state;  /* for weather outlook */
+                meetsLocale = response.location.city + ", " + response.location.state;
                 $("#weatherLoc").text("7 day forecast for " + meetsLocale);
+                var yellButton = $("<a>");
 
-                var yellButton = $("<a>");                  /* dynamicall build the red Yelp link button ... they love red */
                 yellButton.attr("href", response.url);
                 yellButton.text("Open Yelp");
                 yellButton.attr("target", "_blank");
@@ -293,50 +451,64 @@
                 $("#meetRat").text(meetRat);
                 meetCost = response.price;
                 $("#meetCost").text(meetCost);
-                
+                $('.detailDiv').show();
             })
-            var queryURL = "https://api.weather.gov/points/" + meetLat + "," + meetLong; /* setup primary weather lookup */
+            var queryURL = "https://api.weather.gov/points/" + meetLat + "," + meetLong;
 
             $.ajax({
                 url: queryURL,
                 method: "GET"
             }).then(function (response) {
                 console.log(response);
-                forecastURL = response.properties.forecast; /* grab JSON-LD link ... see https://json-ld.org */
-
-                queryURL = "https://radiant-temple-43796.herokuapp.com/whetherornot?url=" + forecastURL; /* whet hero r not; node hosted function for REST pull which leverages "unirest" module hosted on Heroku */
+                forecastURL = response.properties.forecast;
+                queryURL = "https://radiant-temple-43796.herokuapp.com/whetherornot?url=" + forecastURL;
                 console.log(queryURL);
 
                 $.ajax({
-                    url: queryURL,  /* pull detailed weather record which includes 7 day outlook, images, etc */
+                    url: queryURL,
                     method: "GET"
                 }).then(function (response) {
                     console.log(response);
                     for (let x = 0; x < 7; x++) {
                         weatherPic = response.properties.periods[x*2].icon;
-                        $("#0-" + x).attr("src", weatherPic); /* dynamically populate 7-cards */
+                        $("#0-" + x).attr("src", weatherPic);
                         $("#w0-" + x).html(response.properties.periods[x*2].temperature + "'F<br>Wind: " + response.properties.periods[x*2].windSpeed);
                         console.log(response.properties.periods[x].name + ": " + response.properties.periods[x].shortForecast)
                     }
                 });
             });
-            $('.selectedDiv').show();
         });
-        $('.detailDiv').hide();
-        $('.selectedDiv').hide();         /* hide inactive divs */
-        $('.schedDiv').hide();
 
-        meetLong = "";                    // unused for now
-        meetLat = "";                     // unused for now
+        meetLong = "";             // Initialize vars and startup
+        meetLat = "";
         responseRet = "";
+
+        searchMeets("40.709937","-73.848305892030");
         var forecastURL = "";
-        var querystring = window.location.querystring;
-        var zipIn = querystring["zip"];
 
-        //searchMeets("40.709937","-73.848305892030"); // stub for lat/long test; ultimately, other code calls the searchMeets function with Lat/Long
+        $('.detailDiv').show();
 
-        searchMeets(zipIn);                            // stub for prototype 
-        
+
+
+        var queryURL = "https://radiant-temple-43796.herokuapp.com/yapi/byid/";
+
+
+        //    $.ajax({
+        //        url: queryURL,
+        //        method: "GET"
+        //    }).then(function (response) {
+        //        console.log(response)
+
+         //       window.scrollTo(0,document.body.scrollHeight);
+                //document.write('<img src="' + response.image_url + '" height="250" width="250">');
+                // for (let x = 0; x < response.photos.length; x++) {
+                //     document.write('<img src="' + response.photos[x] + '" height="250" width="250">');
+                // }
+         //   });
+
+
+
+
     </script>
 </body>
 
